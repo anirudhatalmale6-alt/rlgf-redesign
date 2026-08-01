@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rental Properties — Royal LePage Global Force Realty</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=3">
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="Royal LePage Global Force Realty">
+      <div class="rbar"><div class="r1"></div><div class="r2"><b>ROYAL LEPAGE</b><span class="bars"></span></div><div class="sub">GLOBAL FORCE</div></div>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li class="has-sub"><a class="active" href="listings.html">LISTINGS <span class="caret">&#9662;</span></a>
+          <ul class="sub">
+            <li><a href="listings.html">Homes for Sale</a></li>
+            <li><a href="rentals.html">Rentals</a></li>
+            <li><a href="commercial.html">Commercial</a></li>
+          </ul>
+        </li>
+        <li><a href="realtors.html">REALTORS&reg;</a></li>
+        <li><a href="index.html#community">COMMUNITIES</a></li>
+        <li><a href="index.html#marketing">MARKETING</a></li>
+        <li><a href="contact.html">CONTACT US</a></li>
+      </ul>
+    </nav>
+    <button class="menu-btn">&#9776;</button>
+  </div>
+</header>
+
+<section class="pagehead">
+  <div class="wrap">
+    <div class="crumb"><a href="index.html">Home</a> &nbsp;&rsaquo;&nbsp; <a href="listings.html">Listings</a> &nbsp;&rsaquo;&nbsp; Rentals</div>
+    <span class="kick">Rental Search</span>
+    <h1>Homes &amp; apartments for rent</h1>
+    <p>Apartments, condos, townhomes and houses for lease across Surrey, Delta, Langley and the Fraser Valley. Filter by rent, beds and type.</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <form class="searchbar" onsubmit="return false">
+    <div class="fld"><label>Location</label><input type="text" placeholder="City or neighbourhood"></div>
+    <div class="fld"><label>Type</label><select><option>Any type</option><option>Apartment</option><option>Condo</option><option>Townhome</option><option>House</option><option>Basement Suite</option></select></div>
+    <div class="fld"><label>Beds</label><select><option>Any</option><option>Studio</option><option>1+</option><option>2+</option><option>3+</option><option>4+</option></select></div>
+    <div class="fld"><label>Max rent</label><select><option>No max</option><option>$1,500 / mo</option><option>$2,000 / mo</option><option>$2,500 / mo</option><option>$3,000 / mo</option><option>$4,000+ / mo</option></select></div>
+    <button class="go">SEARCH</button>
+  </form>
+</div>
+
+<section class="results">
+  <div class="wrap">
+    <div class="bar">
+      <div class="count"><b>86</b> rentals found &middot; Surrey &amp; Fraser Valley</div>
+      <select class="sort"><option>Sort: Newest</option><option>Rent (low to high)</option><option>Rent (high to low)</option><option>Beds</option></select>
+    </div>
+    <div class="lgrid">
+      <article class="lcard"><div class="im" style="background-image:url('img/rent_apt.jpg')"><span class="tag">Available</span><span class="price">$2,450<small>/mo</small></span></div><div class="b"><h3>Modern 2-Bed Apartment</h3><div class="addr">14200 104 Ave, Surrey &middot; Whalley</div><div class="meta"><span><b>2</b> Beds</span><span><b>1</b> Bath</span><span><b>820</b> sqft</span></div></div></article>
+      <article class="lcard"><div class="im" style="background-image:url('img/rent_condo.jpg')"><span class="tag">New</span><span class="price">$2,100<small>/mo</small></span></div><div class="b"><h3>Bright City-Centre Condo</h3><div class="addr">1502 &ndash; 13438 Central Ave, Surrey &middot; City Centre</div><div class="meta"><span><b>1</b> Bed</span><span><b>1</b> Bath</span><span><b>610</b> sqft</span></div></div></article>
+      <article class="lcard"><div class="im" style="background-image:url('img/00f120e6ac50.jpg')"><span class="price">$2,300<small>/mo</small></span></div><div class="b"><h3>Sunlit Corner Condo</h3><div class="addr">305 &ndash; 5599 152 St, Surrey &middot; Sullivan</div><div class="meta"><span><b>2</b> Beds</span><span><b>2</b> Baths</span><span><b>900</b> sqft</span></div></div></article>
+      <article class="lcard"><div class="im" style="background-image:url('img/f4b717f132fc.jpg')"><span class="tag">Available</span><span class="price">$3,200<small>/mo</small></span></div><div class="b"><h3>Spacious Family Townhome</h3><div class="addr">22 &ndash; 6350 142 St, Surrey &middot; Sullivan Heights</div><div class="meta"><span><b>3</b> Beds</span><span><b>2.5</b> Baths</span><span><b>1,480</b> sqft</span></div></div></article>
+      <article class="lcard"><div class="im" style="background-image:url('img/cb352c3f5c37.jpg')"><span class="tag">Pet Friendly</span><span class="price">$3,800<small>/mo</small></span></div><div class="b"><h3>Detached Rental Home</h3><div class="addr">8123 128 St, Surrey &middot; Newton</div><div class="meta"><span><b>4</b> Beds</span><span><b>3</b> Baths</span><span><b>2,100</b> sqft</span></div></div></article>
+      <article class="lcard"><div class="im" style="background-image:url('img/e2caa02c7755.jpg')"><span class="price">$4,600<small>/mo</small></span></div><div class="b"><h3>Executive Rental Home</h3><div class="addr">3402 Rosemary Heights Cres, Surrey</div><div class="meta"><span><b>4</b> Beds</span><span><b>3.5</b> Baths</span><span><b>2,650</b> sqft</span></div></div></article>
+      <article class="lcard"><div class="im" style="background-image:url('img/b301ef3c898e.jpg')"><span class="tag">Utilities Incl</span><span class="price">$1,750<small>/mo</small></span></div><div class="b"><h3>Ground-Level Garden Suite</h3><div class="addr">6142 128 St, Surrey &middot; Panorama Ridge</div><div class="meta"><span><b>2</b> Beds</span><span><b>1</b> Bath</span><span><b>780</b> sqft</span></div></div></article>
+      <article class="lcard"><div class="im" style="background-image:url('img/19c845a1ef89.jpg')"><span class="price">$1,900<small>/mo</small></span></div><div class="b"><h3>Renovated 1-Bed Apartment</h3><div class="addr">210 &ndash; 20200 56 Ave, Langley &middot; Langley City</div><div class="meta"><span><b>1</b> Bed</span><span><b>1</b> Bath</span><span><b>640</b> sqft</span></div></div></article>
+      <article class="lcard"><div class="im" style="background-image:url('img/966cb1ff4590.jpg')"><span class="tag">New</span><span class="price">$5,200<small>/mo</small></span></div><div class="b"><h3>Luxury Penthouse Rental</h3><div class="addr">PH &ndash; 1888 Gilmore Ave, Surrey &middot; City Centre</div><div class="meta"><span><b>3</b> Beds</span><span><b>3</b> Baths</span><span><b>1,760</b> sqft</span></div></div></article>
+    </div>
+    <div class="pager"><a class="on" href="#">1</a><a href="#">2</a><a href="#">3</a><a href="#">&rsaquo;</a></div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2>Looking to rent out your property?</h2>
+    <p>List your rental with Royal LePage Global Force Realty &mdash; we handle marketing, screening and leasing.</p>
+    <a class="rbtn" href="contact.html">LIST YOUR RENTAL</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fbrand">
+        <a class="logo" href="index.html"><div class="rbar"><div class="r1"></div><div class="r2"><b>ROYAL LEPAGE</b><span class="bars"></span></div><div class="sub">GLOBAL FORCE</div></div></a>
+        <p>Independently owned and operated. Serving Surrey and the Fraser Valley with local expertise and national reach.</p>
+        <div class="fsoc">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M13 22v-8h3l1-4h-4V8c0-1 .5-2 2-2h2V2h-3c-3 0-5 2-5 5v3H6v4h3v8z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2c2.7 0 3 0 4.1.1 1 0 1.7.2 2.3.5.6.2 1.1.5 1.6 1s.8 1 1 1.6c.3.6.4 1.3.5 2.3.1 1.1.1 1.4.1 4.1s0 3-.1 4.1c0 1-.2 1.7-.5 2.3a4.4 4.4 0 0 1-1 1.6c-.5.5-1 .8-1.6 1-.6.3-1.3.4-2.3.5-1.1.1-1.4.1-4.1.1s-3 0-4.1-.1c-1 0-1.7-.2-2.3-.5a4.4 4.4 0 0 1-1.6-1c-.5-.5-.8-1-1-1.6-.3-.6-.4-1.3-.5-2.3C2 15 2 14.7 2 12s0-3 .1-4.1c0-1 .2-1.7.5-2.3.2-.6.5-1.1 1-1.6s1-.8 1.6-1c.6-.3 1.3-.4 2.3-.5C8.6 2 9 2 12 2m0 3.2A6.8 6.8 0 1 0 18.8 12 6.8 6.8 0 0 0 12 5.2m0 11.2A4.4 4.4 0 1 1 16.4 12 4.4 4.4 0 0 1 12 16.4m7-11.6a1.6 1.6 0 1 0 1.6 1.6 1.6 1.6 0 0 0-1.6-1.6"/></svg></a>
+        </div>
+      </div>
+      <div><h5>Buy</h5><ul><li><a href="listings.html">Homes for Sale</a></li><li><a href="rentals.html">Rentals</a></li><li><a href="commercial.html">Commercial</a></li><li><a href="index.html#community">Communities</a></li></ul></div>
+      <div><h5>Sell</h5><ul><li><a href="contact.html">Home Evaluation</a></li><li><a href="#">Our Process</a></li><li><a href="#">Recent Sales</a></li><li><a href="#">Staging Tips</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="realtors.html">Our Realtors&reg;</a></li><li><a href="#">Careers</a></li><li><a href="commercial.html">Commercial</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+    </div>
+    <div class="fbot">
+      <span>&copy; 2026 Royal LePage Global Force Realty. Independently owned and operated.</span>
+      <span class="pcplus">Site by <b>PC Plus Computing</b> &middot; 604-760-1662</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelector('.menu-btn').addEventListener('click',function(){
+    var n=document.querySelector('nav ul');
+    n.style.display=(n.style.display==='flex')?'none':'flex';
+    n.style.position='absolute';n.style.top='82px';n.style.left='0';n.style.right='0';
+    n.style.flexDirection='column';n.style.background='#fff';n.style.padding='20px 30px';
+    n.style.borderBottom='1px solid #e7e7e7';n.style.gap='16px';
+  });
+</script>
+</body>
+</html>

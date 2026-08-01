@@ -3,313 +3,177 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Royal LePage Global Force Realty — Surrey & the Fraser Valley</title>
-<style>
-  :root{
-    --ink:#111318;
-    --ink-soft:#4a4f57;
-    --paper:#ffffff;
-    --bone:#f6f4ef;
-    --line:#e4e0d8;
-    --gold:#febd11;      /* Royal LePage yellow */
-    --gold-deep:#e0a500;
-    --red:#c8102e;
-    --shadow:0 22px 60px -28px rgba(17,19,24,.45);
-    --serif:"Georgia","Times New Roman",serif;
-    --sans:"Helvetica Neue",Arial,sans-serif;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased}
-  a{color:inherit;text-decoration:none}
-  img{max-width:100%;display:block}
-  .wrap{max-width:1200px;margin:0 auto;padding:0 28px}
-  .eyebrow{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-deep);font-weight:700}
-
-  /* top strip */
-  .strip{background:var(--ink);color:#d8dae0;font-size:12.5px;letter-spacing:.03em}
-  .strip .wrap{display:flex;justify-content:space-between;align-items:center;height:38px}
-  .strip a:hover{color:var(--gold)}
-  .strip .r span{margin-left:20px}
-
-  /* nav */
-  header.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
-  .brand{display:flex;align-items:center;gap:13px}
-  .chev{width:40px;height:40px;background:var(--gold);position:relative;flex:0 0 auto}
-  .chev:before{content:"";position:absolute;inset:8px;background:var(--ink);clip-path:polygon(50% 0,100% 100%,50% 72%,0 100%)}
-  .brand b{font-family:var(--serif);font-size:19px;letter-spacing:.01em;line-height:1.05;display:block}
-  .brand small{display:block;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft)}
-  nav ul{display:flex;gap:30px;list-style:none;font-size:14px;font-weight:600}
-  nav a{padding:6px 0;position:relative}
-  nav a:after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--gold);transition:width .25s}
-  nav a:hover:after{width:100%}
-  .btn{display:inline-block;background:var(--ink);color:#fff;padding:12px 22px;font-weight:700;font-size:13.5px;letter-spacing:.03em;border:none;cursor:pointer;transition:.2s}
-  .btn:hover{background:var(--gold);color:var(--ink)}
-  .btn.gold{background:var(--gold);color:var(--ink)}
-  .btn.gold:hover{background:var(--ink);color:#fff}
-  .btn.ghost{background:transparent;border:1.5px solid var(--ink);color:var(--ink)}
-  .btn.ghost:hover{background:var(--ink);color:#fff}
-  .menu-btn{display:none}
-
-  /* hero */
-  .hero{position:relative;min-height:640px;display:flex;align-items:center;color:#fff;overflow:hidden}
-  .hero-bg{position:absolute;inset:0;background:
-      linear-gradient(105deg,rgba(17,19,24,.92) 0%,rgba(17,19,24,.55) 46%,rgba(17,19,24,.15) 100%),
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='900'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23273043'/%3E%3Cstop offset='1' stop-color='%230d1017'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1600' height='900' fill='url(%23g)'/%3E%3Cg fill='none' stroke='%23394358' stroke-width='2' opacity='.6'%3E%3Cpath d='M120 700 L120 430 L360 300 L600 430 L600 700 Z'/%3E%3Cpath d='M700 700 L700 360 L980 210 L1260 360 L1260 700 Z'/%3E%3Cpath d='M1280 700 L1280 470 L1440 380 L1560 470 L1560 700'/%3E%3C/g%3E%3Cg fill='%23394358' opacity='.5'%3E%3Crect x='170' y='470' width='40' height='60'/%3E%3Crect x='270' y='470' width='40' height='60'/%3E%3Crect x='420' y='470' width='40' height='60'/%3E%3Crect x='790' y='420' width='46' height='70'/%3E%3Crect x='920' y='420' width='46' height='70'/%3E%3Crect x='1060' y='420' width='46' height='70'/%3E%3C/g%3E%3C/svg%3E") center/cover}
-  .hero .wrap{position:relative;z-index:2;padding-top:40px;padding-bottom:40px}
-  .hero h1{font-family:var(--serif);font-size:clamp(38px,5.4vw,66px);line-height:1.03;font-weight:400;max-width:16ch;margin:18px 0 20px}
-  .hero h1 em{font-style:italic;color:var(--gold)}
-  .hero p.sub{font-size:19px;max-width:44ch;color:#e7e9ee}
-  /* search card */
-  .searchcard{margin-top:34px;background:#fff;color:var(--ink);padding:10px;display:flex;gap:10px;max-width:720px;box-shadow:var(--shadow);flex-wrap:wrap}
-  .searchcard .tabs{display:flex;width:100%;gap:2px;margin-bottom:2px}
-  .searchcard .tabs button{flex:0 0 auto;background:var(--bone);border:none;padding:10px 20px;font-weight:700;font-size:13px;cursor:pointer;color:var(--ink-soft)}
-  .searchcard .tabs button.on{background:var(--ink);color:#fff}
-  .searchcard input{flex:1;min-width:180px;border:1px solid var(--line);padding:15px 16px;font-size:15px;font-family:inherit}
-  .searchcard .btn{padding:15px 26px}
-  .hero-stats{display:flex;gap:40px;margin-top:36px;flex-wrap:wrap}
-  .hero-stats div b{font-family:var(--serif);font-size:32px;display:block;color:var(--gold)}
-  .hero-stats div span{font-size:13px;letter-spacing:.04em;color:#cfd2da}
-
-  /* section shell */
-  section{padding:88px 0}
-  .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:44px;flex-wrap:wrap}
-  .sec-head h2{font-family:var(--serif);font-size:clamp(28px,3.4vw,42px);font-weight:400;line-height:1.08;max-width:18ch}
-  .sec-head p{color:var(--ink-soft);max-width:40ch;margin-top:8px}
-
-  /* listings */
-  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
-  .card{background:#fff;border:1px solid var(--line);overflow:hidden;transition:.25s;display:flex;flex-direction:column}
-  .card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:transparent}
-  .card .ph{height:210px;position:relative;background:linear-gradient(135deg,#dfe3ea,#c4cad6)}
-  .card .ph .tag{position:absolute;top:14px;left:14px;background:var(--gold);color:var(--ink);font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:5px 11px}
-  .card .ph .price{position:absolute;bottom:0;left:0;background:rgba(17,19,24,.86);color:#fff;font-family:var(--serif);font-size:22px;padding:8px 16px}
-  .card .body{padding:18px 20px 22px;flex:1;display:flex;flex-direction:column}
-  .card h3{font-size:17px;font-weight:700;margin-bottom:3px}
-  .card .addr{color:var(--ink-soft);font-size:13.5px;margin-bottom:14px}
-  .card .meta{display:flex;gap:18px;font-size:13px;color:var(--ink);border-top:1px solid var(--line);padding-top:13px;margin-top:auto}
-  .card .meta b{font-weight:700}
-  .icon-row svg{width:15px;height:15px;vertical-align:-2px;margin-right:5px;stroke:var(--gold-deep)}
-
-  /* value / funnel band */
-  .band{background:var(--ink);color:#fff}
-  .band .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
-  .band h2{font-family:var(--serif);font-size:clamp(28px,3.5vw,44px);font-weight:400;line-height:1.08}
-  .band p{color:#c9ccd4;margin-top:16px;max-width:44ch}
-  .band ul{list-style:none;margin-top:24px;display:grid;gap:12px}
-  .band ul li{padding-left:30px;position:relative;color:#e7e9ee}
-  .band ul li:before{content:"";position:absolute;left:0;top:9px;width:14px;height:14px;background:var(--gold);clip-path:polygon(50% 0,100% 100%,50% 72%,0 100%)}
-  .lead{background:#fff;color:var(--ink);padding:34px;box-shadow:var(--shadow)}
-  .lead h3{font-family:var(--serif);font-size:24px;font-weight:400;margin-bottom:6px}
-  .lead p.small{font-size:13.5px;color:var(--ink-soft);margin-bottom:20px}
-  .lead label{display:block;font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
-  .lead input,.lead select{width:100%;border:1px solid var(--line);padding:13px 14px;font-size:15px;font-family:inherit;margin-bottom:16px}
-  .lead .btn{width:100%;padding:15px}
-  .lead .note{font-size:11.5px;color:#9aa0aa;margin-top:12px;text-align:center}
-
-  /* agents */
-  .agents{background:var(--bone)}
-  .agrid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
-  .agent{background:#fff;text-align:center;padding:0 0 22px;border:1px solid var(--line)}
-  .agent .av{height:210px;background:linear-gradient(135deg,#e7d9b0,#cbb681);position:relative}
-  .agent .av span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:52px;color:rgba(17,19,24,.32)}
-  .agent h4{font-size:16.5px;margin:16px 0 2px}
-  .agent .role{font-size:12.5px;color:var(--gold-deep);font-weight:700;letter-spacing:.05em;text-transform:uppercase}
-  .agent .ph2{font-size:13px;color:var(--ink-soft);margin-top:8px}
-
-  /* testimonials */
-  .tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
-  .quote{background:#fff;border:1px solid var(--line);padding:30px 28px;position:relative}
-  .quote:before{content:"\201C";font-family:var(--serif);font-size:90px;color:var(--gold);line-height:.6;position:absolute;top:22px;right:22px;opacity:.35}
-  .quote p{font-size:15.5px;color:var(--ink);position:relative;z-index:1}
-  .quote .who{margin-top:18px;font-weight:700;font-size:14px}
-  .quote .who span{display:block;font-weight:400;color:var(--ink-soft);font-size:13px}
-  .stars{color:var(--gold-deep);letter-spacing:2px;margin-bottom:14px}
-
-  /* social agent feature */
-  .social{background:linear-gradient(120deg,#fff 0%,#faf7f0 100%)}
-  .social .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
-  .phone{background:var(--ink);border-radius:34px;padding:14px;max-width:300px;margin:0 auto;box-shadow:var(--shadow)}
-  .phone .screen{background:#fff;border-radius:22px;overflow:hidden}
-  .phone .pbar{background:var(--gold);height:46px;display:flex;align-items:center;padding:0 16px;font-weight:800;font-size:13px}
-  .post{padding:14px}
-  .post .pimg{height:150px;background:linear-gradient(135deg,#c4cad6,#9aa6bc);border-radius:10px;position:relative}
-  .post .pimg .just{position:absolute;top:10px;left:10px;background:var(--red);color:#fff;font-size:10px;font-weight:800;padding:4px 9px;letter-spacing:.06em}
-  .post .cap{font-size:12.5px;color:var(--ink);margin-top:10px;line-height:1.5}
-  .post .cap b{color:var(--gold-deep)}
-  .social h2{font-family:var(--serif);font-size:clamp(28px,3.4vw,42px);font-weight:400;line-height:1.08}
-  .social .feat{display:grid;gap:18px;margin-top:26px}
-  .social .feat .f{display:flex;gap:16px}
-  .social .feat .fn{flex:0 0 42px;height:42px;background:var(--ink);color:var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:18px}
-  .social .feat h4{font-size:16px;margin-bottom:2px}
-  .social .feat p{font-size:14px;color:var(--ink-soft)}
-
-  /* cta strip */
-  .cta{background:var(--gold);text-align:center}
-  .cta h2{font-family:var(--serif);font-size:clamp(28px,3.6vw,46px);font-weight:400;color:var(--ink)}
-  .cta p{color:#5a4a12;margin:12px 0 26px;font-size:17px}
-
-  /* footer */
-  footer{background:var(--ink);color:#b9bdc6;font-size:14px;padding:64px 0 30px}
-  .fgrid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1px solid #2a2e37}
-  footer h5{color:#fff;font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px}
-  footer ul{list-style:none;display:grid;gap:10px}
-  footer a:hover{color:var(--gold)}
-  .fbrand b{font-family:var(--serif);color:#fff;font-size:20px}
-  .fsoc{display:flex;gap:12px;margin-top:18px}
-  .fsoc a{width:38px;height:38px;border:1px solid #333842;display:flex;align-items:center;justify-content:center;transition:.2s}
-  .fsoc a:hover{background:var(--gold);border-color:var(--gold)}
-  .fsoc svg{width:17px;height:17px;fill:currentColor}
-  .fsoc a:hover svg{fill:var(--ink)}
-  .fbot{display:flex;justify-content:space-between;padding-top:24px;font-size:12.5px;color:#7d828c;flex-wrap:wrap;gap:10px}
-
-  @media(max-width:960px){
-    .grid,.tgrid{grid-template-columns:repeat(2,1fr)}
-    .agrid{grid-template-columns:repeat(2,1fr)}
-    .band .wrap,.social .wrap{grid-template-columns:1fr;gap:40px}
-    .fgrid{grid-template-columns:1fr 1fr}
-  }
-  @media(max-width:640px){
-    nav ul,.strip .r,.nav .btn{display:none}
-    .menu-btn{display:block;background:none;border:none;font-size:26px;cursor:pointer}
-    .grid,.tgrid,.agrid,.fgrid{grid-template-columns:1fr}
-    section{padding:60px 0}
-    .hero{min-height:auto}
-  }
-</style>
+<title>Royal LePage Global Force Realty — Surrey &amp; the Fraser Valley</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
 
-<div class="strip">
+<header>
   <div class="wrap">
-    <div class="l">Surrey · Delta · Langley · The Fraser Valley</div>
-    <div class="r">
-      <span>604&#8209;760&#8209;1662</span>
-      <span><a href="#contact">Book a valuation</a></span>
-      <span><a href="#portal">Client Login</a></span>
-    </div>
-  </div>
-</div>
-
-<header class="nav">
-  <div class="wrap">
-    <a class="brand" href="#">
-      <span class="chev"></span>
-      <span><b>Global Force Realty</b><small>Royal LePage</small></span>
+    <a class="logo" href="index.html" aria-label="Royal LePage Global Force Realty">
+      <div class="rbar">
+        <div class="r1"></div>
+        <div class="r2"><b>ROYAL LEPAGE</b><span class="bars"></span></div>
+        <div class="sub">GLOBAL FORCE</div>
+      </div>
     </a>
     <nav>
       <ul>
-        <li><a href="#listings">Buy</a></li>
-        <li><a href="#sell">Sell</a></li>
-        <li><a href="#agents">Our Team</a></li>
-        <li><a href="#social">Marketing</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a class="active" href="index.html">HOME</a></li>
+        <li class="has-sub"><a href="listings.html">LISTINGS <span class="caret">&#9662;</span></a>
+          <ul class="sub">
+            <li><a href="listings.html">Homes for Sale</a></li>
+            <li><a href="rentals.html">Rentals</a></li>
+            <li><a href="commercial.html">Commercial</a></li>
+          </ul>
+        </li>
+        <li><a href="realtors.html">REALTORS&reg;</a></li>
+        <li><a href="index.html#community">COMMUNITIES</a></li>
+        <li><a href="index.html#marketing">MARKETING</a></li>
+        <li><a href="contact.html">CONTACT US</a></li>
       </ul>
     </nav>
-    <a class="btn gold" href="#contact">List With Us</a>
     <button class="menu-btn">&#9776;</button>
   </div>
 </header>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg"></div>
   <div class="wrap">
-    <span class="eyebrow" style="color:var(--gold)">Serving the Fraser Valley since 2010</span>
-    <h1>Find the place<br>you'll call <em>home.</em></h1>
-    <p class="sub">Local expertise, national reach. Our team of top-performing agents makes buying and selling in Surrey feel effortless.</p>
-
-    <div class="searchcard">
-      <div class="tabs">
-        <button class="on">Buy</button>
-        <button>Rent</button>
-        <button>Sold</button>
+    <div>
+      <h1>Welcome to Royal LePage Global Force Realty</h1>
+      <p class="lede">Surrey &amp; the Fraser Valley's trusted brokerage for sales &amp; service.</p>
+      <div class="pills">
+        <a class="pill" href="listings.html">MLS&reg; SEARCH</a>
+        <a class="pill" href="listings.html">LUXURY HOMES</a>
+        <a class="pill" href="contact.html">HOME EVALUATION</a>
       </div>
-      <input type="text" placeholder="City, neighbourhood, or MLS&reg; number">
-      <button class="btn gold">Search</button>
+      <div class="welcome">
+        <p>At Royal LePage Global Force Realty, our committed team is ready to support you in <a href="listings.html">purchasing a home or condo</a>, as well as in <a href="contact.html">selling your property</a>.</p>
+        <p>Our highly skilled agents have a profound understanding of the local market and are equipped to offer exceptional guidance for all your real estate needs.</p>
+      </div>
     </div>
+    <div class="hero-img"></div>
+  </div>
+</section>
 
-    <div class="hero-stats">
-      <div><b>1,400+</b><span>Families moved</span></div>
-      <div><b>$1.2B</b><span>In sales closed</span></div>
-      <div><b>14 yrs</b><span>In the Valley</span></div>
+<!-- QUICK CARDS -->
+<section class="qcards">
+  <div class="wrap">
+    <div class="qgrid">
+      <div class="qcard">
+        <div class="im" style="background-image:url('img/9aa865561f49.jpg')"></div>
+        <div class="tx"><h3>Communities</h3><p>Explore Surrey, Delta, Langley &amp; the Fraser Valley.</p><a class="link-red" href="index.html#community">EXPLORE &rarr;</a></div>
+      </div>
+      <div class="qcard">
+        <div class="im" style="background-image:url('img/e2caa02c7755.jpg')"></div>
+        <div class="tx"><h3>Luxury Homes</h3><p>Carriage Trade &mdash; distinguished properties.</p><a class="link-red" href="listings.html">VIEW &rarr;</a></div>
+      </div>
+      <div class="qcard">
+        <div class="im" style="background-image:url('img/7a9eac9cfe5a.jpg')"></div>
+        <div class="tx"><h3>Home Evaluation</h3><p>Find out what your home is worth today.</p><a class="link-red" href="contact.html">GET STARTED &rarr;</a></div>
+      </div>
+      <div class="qcard">
+        <div class="im" style="background-image:url('img/e1acba899043.jpg')"></div>
+        <div class="tx"><h3>Our Realtors&reg;</h3><p>Meet the team that gets results.</p><a class="link-red" href="realtors.html">MEET THE TEAM &rarr;</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE SPLIT -->
+<section class="features">
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fblock">
+        <div class="im" style="background-image:url('img/0033038fdd6f.jpg')"></div>
+        <h2>Luxury Real Estate</h2>
+        <p>A prestigious designation reserved for an exclusive selection of exceptional properties, <b>Carriage Trade</b> is the premier real estate service provided by Royal LePage.</p>
+        <p>Dedicated to showcasing distinguished homes across the Fraser Valley to sophisticated buyers around the globe.</p>
+        <div class="acts"><a class="obtn" href="listings.html">VIEW LUXURY HOMES FOR SALE</a></div>
+      </div>
+      <div class="fblock">
+        <div class="im" style="background-image:url('img/b301ef3c898e.jpg')"></div>
+        <h2>Home Evaluation</h2>
+        <p>Discover the potential value of your home in today's real estate market. Given the dynamic nature of the housing market, it's essential to stay informed about the factors affecting your property's worth.</p>
+        <div class="acts">
+          <a class="obtn" href="contact.html">GET A FREE EVALUATION</a>
+          <a class="obtn" href="realtors.html">TALK TO A REALTOR&reg;</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- LISTINGS -->
-<section id="listings">
+<section class="listings" id="listings">
   <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <span class="eyebrow">Featured properties</span>
-        <h2>Handpicked homes on the market now</h2>
-      </div>
-      <a class="btn ghost" href="#">View all listings</a>
+    <div class="sec-title">
+      <span class="kick">Featured Properties</span>
+      <h2>Homes for sale in the Fraser Valley</h2>
+      <p>Handpicked listings from our team. Browse the full MLS&reg; inventory in our listing search.</p>
     </div>
-    <div class="grid">
-
-      <article class="card">
-        <div class="ph"><span class="tag">New</span><span class="price">$1,249,000</span></div>
-        <div class="body">
-          <h3>Modern Family Home</h3>
-          <div class="addr">14820 68 Ave, Surrey · Sullivan Station</div>
-          <div class="meta icon-row">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 12h18M5 12V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v5M3 12v6m18-6v6"/></svg><b>4</b> Beds</span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 12h16v4a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3zM6 12V6a2 2 0 0 1 2-2"/></svg><b>3</b> Baths</span>
-            <span><b>2,410</b> sqft</span>
-          </div>
-        </div>
+    <div class="lgrid">
+      <article class="lcard">
+        <div class="im" style="background-image:url('img/cb352c3f5c37.jpg')"><span class="tag">New</span><span class="price">$1,249,000</span></div>
+        <div class="b"><h3>Modern Family Home</h3><div class="addr">14820 68 Ave, Surrey &middot; Sullivan Station</div>
+        <div class="meta"><span><b>4</b> Beds</span><span><b>3</b> Baths</span><span><b>2,410</b> sqft</span></div></div>
       </article>
-
-      <article class="card">
-        <div class="ph"><span class="tag">Open House</span><span class="price">$879,900</span></div>
-        <div class="body">
-          <h3>Bright Corner Townhome</h3>
-          <div class="addr">102 &#8211; 5788 152 St, Surrey · Panorama</div>
-          <div class="meta icon-row">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 12h18M5 12V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v5M3 12v6m18-6v6"/></svg><b>3</b> Beds</span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 12h16v4a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3zM6 12V6a2 2 0 0 1 2-2"/></svg><b>2</b> Baths</span>
-            <span><b>1,560</b> sqft</span>
-          </div>
-        </div>
+      <article class="lcard">
+        <div class="im" style="background-image:url('img/f4b717f132fc.jpg')"><span class="tag">Open House</span><span class="price">$879,900</span></div>
+        <div class="b"><h3>Bright Corner Townhome</h3><div class="addr">102 &ndash; 5788 152 St, Surrey &middot; Panorama</div>
+        <div class="meta"><span><b>3</b> Beds</span><span><b>2</b> Baths</span><span><b>1,560</b> sqft</span></div></div>
       </article>
-
-      <article class="card">
-        <div class="ph"><span class="tag">Just Listed</span><span class="price">$2,150,000</span></div>
-        <div class="body">
-          <h3>Executive Estate</h3>
-          <div class="addr">3402 Rosemary Heights Cres, Surrey</div>
-          <div class="meta icon-row">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 12h18M5 12V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v5M3 12v6m18-6v6"/></svg><b>5</b> Beds</span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 12h16v4a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3zM6 12V6a2 2 0 0 1 2-2"/></svg><b>4</b> Baths</span>
-            <span><b>3,880</b> sqft</span>
-          </div>
-        </div>
+      <article class="lcard">
+        <div class="im" style="background-image:url('img/966cb1ff4590.jpg')"><span class="tag">Just Listed</span><span class="price">$2,150,000</span></div>
+        <div class="b"><h3>Executive Estate</h3><div class="addr">3402 Rosemary Heights Cres, Surrey</div>
+        <div class="meta"><span><b>5</b> Beds</span><span><b>4</b> Baths</span><span><b>3,880</b> sqft</span></div></div>
       </article>
+    </div>
+    <div class="center-cta"><a class="pill" href="listings.html">VIEW ALL LISTINGS</a></div>
+  </div>
+</section>
 
+<!-- RENTALS & COMMERCIAL -->
+<section class="verticals">
+  <div class="wrap">
+    <div class="sec-title">
+      <span class="kick">More ways to search</span>
+      <h2>Rentals &amp; Commercial Properties</h2>
+      <p>Beyond homes for sale &mdash; browse rental listings and commercial opportunities across Surrey and the Fraser Valley.</p>
+    </div>
+    <div class="vgrid">
+      <a class="vcard" href="rentals.html">
+        <div class="im" style="background-image:url('img/rent_apt.jpg')"></div>
+        <div class="vt"><h3>Rental Properties</h3><p>Apartments, condos and homes for lease &mdash; updated as new rentals hit the market.</p><span class="link-red">BROWSE RENTALS &rarr;</span></div>
+      </a>
+      <a class="vcard" href="commercial.html">
+        <div class="im" style="background-image:url('img/com_glass.jpg')"></div>
+        <div class="vt"><h3>Commercial Properties</h3><p>Office, retail, industrial and investment properties for sale or lease.</p><span class="link-red">BROWSE COMMERCIAL &rarr;</span></div>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- SELL / VALUATION FUNNEL -->
-<section class="band" id="sell">
+<!-- FUNNEL / VALUATION -->
+<section class="funnel" id="contact">
   <div class="wrap">
     <div>
-      <span class="eyebrow">Thinking of selling?</span>
+      <span class="kick">Thinking of selling?</span>
       <h2>Know what your home is worth today.</h2>
-      <p>Get a professional, no-obligation market valuation prepared by an agent who actually sells in your neighbourhood &mdash; not an automated guess.</p>
+      <p class="intro">A professional, no-obligation valuation from an agent who actually sells in your neighbourhood &mdash; not an automated guess.</p>
       <ul>
         <li>Real comparables from recent Fraser Valley sales</li>
         <li>A pricing and staging strategy tailored to your home</li>
-        <li>Full Royal LePage marketing &mdash; MLS&reg;, social, and print</li>
+        <li>Full Royal LePage marketing &mdash; MLS&reg;, social &amp; print</li>
       </ul>
     </div>
-
-    <div class="lead" id="contact">
-      <h3>Free Home Valuation</h3>
-      <p class="small">One form. It routes straight to the right agent &mdash; no bouncing between five sign-ups.</p>
+    <div class="lead">
+      <h3>Free Home Evaluation</h3>
+      <p class="small">One form &mdash; it routes straight to the right agent. No bouncing between five sign-ups.</p>
       <label>Property address</label>
       <input type="text" placeholder="123 Example St, Surrey BC">
       <label>Your name</label>
@@ -318,110 +182,114 @@
       <input type="text" placeholder="you@email.com">
       <label>I'm looking to</label>
       <select><option>Sell my home</option><option>Buy a home</option><option>Both</option><option>Just curious about value</option></select>
-      <button class="btn gold">Get My Valuation</button>
+      <button class="rbtn">GET MY EVALUATION</button>
       <div class="note">We reply within one business day. No spam, ever.</div>
     </div>
   </div>
 </section>
 
-<!-- AGENTS -->
-<section class="agents" id="agents">
-  <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <span class="eyebrow">Our team</span>
-        <h2>The people who make it happen</h2>
-      </div>
-      <a class="btn ghost" href="#">Meet the full team</a>
-    </div>
-    <div class="agrid">
-      <div class="agent"><div class="av"><span>RG</span></div><h4>Raj Gill</h4><div class="role">Managing Broker</div><div class="ph2">604&#8209;760&#8209;1662</div></div>
-      <div class="agent"><div class="av"><span>AS</span></div><h4>Amrit Sandhu</h4><div class="role">Realtor&reg;</div><div class="ph2">Surrey &amp; Delta</div></div>
-      <div class="agent"><div class="av"><span>JK</span></div><h4>Jasmine Kaur</h4><div class="role">Realtor&reg;</div><div class="ph2">Langley &amp; Cloverdale</div></div>
-      <div class="agent"><div class="av"><span>DM</span></div><h4>David Martin</h4><div class="role">Commercial</div><div class="ph2">Fraser Valley</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- SOCIAL MEDIA AGENT -->
-<section class="social" id="social">
+<!-- SOCIAL AGENT -->
+<section class="social" id="marketing">
   <div class="wrap">
     <div>
-      <span class="eyebrow">Powered by PC Plus</span>
+      <span class="kick">Powered by PC Plus</span>
       <h2>Your listings, posted everywhere &mdash; automatically.</h2>
-      <p style="color:var(--ink-soft);margin-top:14px;max-width:46ch">The moment a listing goes live, sells, or holds an open house, our marketing agent builds a branded post and pushes it to Facebook and Instagram. No designer, no manual posting.</p>
-      <div class="feat">
-        <div class="f"><div class="fn">1</div><div><h4>Pulls from your listing data</h4><p>Address, price, photos and status &mdash; straight from the feed.</p></div></div>
-        <div class="f"><div class="fn">2</div><div><h4>Writes the caption &amp; hashtags</h4><p>On-brand copy for New Listing, Open House, and Just Sold.</p></div></div>
-        <div class="f"><div class="fn">3</div><div><h4>Posts on schedule</h4><p>Best-time posting to Facebook &amp; Instagram, fully hands-off.</p></div></div>
+      <p>The moment a property goes live, sells, or holds an open house, our marketing agent builds a branded post and pushes it to Facebook &amp; Instagram. No designer, no manual posting.</p>
+      <div class="steps">
+        <div class="step"><div class="n">1</div><div><h4>Pulls from your listing data</h4><p>Address, price, photos and status &mdash; straight from the feed.</p></div></div>
+        <div class="step"><div class="n">2</div><div><h4>Writes the caption &amp; hashtags</h4><p>On-brand copy for New Listing, Open House and Just Sold.</p></div></div>
+        <div class="step"><div class="n">3</div><div><h4>Posts on schedule</h4><p>Best-time posting to Facebook &amp; Instagram, fully hands-off.</p></div></div>
       </div>
-      <a class="btn" href="#contact" style="margin-top:26px">See it in action</a>
     </div>
-
     <div class="phone">
-      <div class="screen">
-        <div class="pbar"><span class="chev" style="width:20px;height:20px;margin-right:8px"></span>Global Force Realty</div>
-        <div class="post">
-          <div class="pimg"><span class="just">JUST SOLD</span></div>
-          <div class="cap"><b>SOLD in 6 days over asking! &#127881;</b><br>Another happy family home in Sullivan Station. Thinking of selling? Our team gets results. <b>#SurreyRealEstate #JustSold #RoyalLePage #FraserValley</b></div>
-        </div>
+      <div class="scr">
+        <div class="top"><div class="d"></div><div><b>Global Force Realty</b><small>Sponsored</small></div></div>
+        <div class="pi" style="background-image:url('img/cb352c3f5c37.jpg')"><span class="just">JUST SOLD</span></div>
+        <div class="cap"><b>SOLD in 6 days, over asking! &#127881;</b><br>Another happy family in Sullivan Station. Thinking of selling? Our team gets results. <span class="hash">#SurreyRealEstate #JustSold #RoyalLePage #FraserValley</span></div>
+        <div class="acts"><span>&#9825; 148</span><span>&#128172; 12</span><span>&#10148; Share</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section>
+<!-- COMMUNITY -->
+<section class="community" id="community">
   <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <span class="eyebrow">Reviews</span>
-        <h2>What our clients say</h2>
+    <h2>Welcome to <span>Surrey</span></h2>
+    <div class="cgrid">
+      <div class="im" style="background-image:url('img/00f120e6ac50.jpg')"></div>
+      <div class="tx">
+        <p>If you are contemplating the purchase of a home in the Fraser Valley, you will find a wealth of <a href="listings.html">diverse neighbourhoods and communities</a> to explore.</p>
+        <p>We invite you to browse our listings of houses for sale across the region. Our team is dedicated to serving the vibrant communities of <a href="listings.html">Surrey</a>, <a href="listings.html">Delta</a>, <a href="listings.html">Langley</a> and <a href="listings.html">Cloverdale</a>. There truly is an ideal home for everyone.</p>
+        <p>Whether you are in search of a dynamic urban environment, a serene suburban escape, or a family-friendly neighbourhood close to top schools and parks, the Fraser Valley has something to offer everyone. Our agents know these streets, the schools, and the market &mdash; and they'll guide you to the right fit.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team" id="team">
+  <div class="wrap">
+    <div class="sec-title">
+      <span class="kick">Our Team</span>
+      <h2>The people who make it happen</h2>
     </div>
     <div class="tgrid">
-      <div class="quote"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>They sold our townhome in under a week and handled every detail. Genuinely the smoothest move we've ever had.</p><div class="who">Manpreet &amp; Sukh<span>Panorama, Surrey</span></div></div>
-      <div class="quote"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>First-time buyers and totally overwhelmed &mdash; our agent walked us through everything. Found us the perfect place.</p><div class="who">Daniel R.<span>Cloverdale</span></div></div>
-      <div class="quote"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>Professional, honest, and they know this market inside out. I've referred three friends already.</p><div class="who">Harjit S.<span>Delta</span></div></div>
+      <div class="agent"><div class="av" style="background-image:url('img/d2dfa61430a0.jpg')"></div><h4>Raj Gill</h4><div class="role">Broker / Owner</div><div class="ph">604&#8209;596&#8209;1800</div></div>
+      <div class="agent"><div class="av" style="background-image:url('img/20553a37d03f.jpg')"></div><h4>Dale Barker</h4><div class="role">Broker PREC</div><div class="ph">Surrey &amp; Delta</div></div>
+      <div class="agent"><div class="av" style="background-image:url('img/11c698978e3f.jpg')"></div><h4>Rummy Arora</h4><div class="role">Realtor&reg;</div><div class="ph">Langley &amp; Cloverdale</div></div>
+      <div class="agent"><div class="av" style="background-image:url('img/e7e0440ee94d.jpg')"></div><h4>Jag Sidhu</h4><div class="role">Sales Representative</div><div class="ph">Fraser Valley</div></div>
     </div>
+    <div class="center-cta"><a class="pill" href="realtors.html">MEET THE FULL TEAM</a></div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta">
+<!-- CTA BAND -->
+<section class="band">
   <div class="wrap">
     <h2>Ready to make your move?</h2>
     <p>Whether you're buying, selling, or just exploring &mdash; let's talk.</p>
-    <a class="btn" href="#contact">Book a free consultation</a>
+    <a class="rbtn" href="contact.html">BOOK A FREE CONSULTATION</a>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer id="portal">
+<!--#footer-->
+<footer>
   <div class="wrap">
     <div class="fgrid">
       <div class="fbrand">
-        <div class="brand" style="margin-bottom:14px"><span class="chev"></span><span><b style="color:#fff">Global Force Realty</b><small style="color:#8b8f98">Royal LePage</small></span></div>
-        <p style="max-width:34ch">Independently owned and operated. Serving Surrey and the Fraser Valley with local expertise and national reach.</p>
+        <a class="logo" href="index.html">
+          <div class="rbar">
+            <div class="r1"></div>
+            <div class="r2"><b>ROYAL LEPAGE</b><span class="bars"></span></div>
+            <div class="sub">GLOBAL FORCE</div>
+          </div>
+        </a>
+        <p>Independently owned and operated. Serving Surrey and the Fraser Valley with local expertise and national reach.</p>
         <div class="fsoc">
           <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M13 22v-8h3l1-4h-4V8c0-1 .5-2 2-2h2V2h-3c-3 0-5 2-5 5v3H6v4h3v8z"/></svg></a>
           <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2c2.7 0 3 0 4.1.1 1 0 1.7.2 2.3.5.6.2 1.1.5 1.6 1s.8 1 1 1.6c.3.6.4 1.3.5 2.3.1 1.1.1 1.4.1 4.1s0 3-.1 4.1c0 1-.2 1.7-.5 2.3a4.4 4.4 0 0 1-1 1.6c-.5.5-1 .8-1.6 1-.6.3-1.3.4-2.3.5-1.1.1-1.4.1-4.1.1s-3 0-4.1-.1c-1 0-1.7-.2-2.3-.5a4.4 4.4 0 0 1-1.6-1c-.5-.5-.8-1-1-1.6-.3-.6-.4-1.3-.5-2.3C2 15 2 14.7 2 12s0-3 .1-4.1c0-1 .2-1.7.5-2.3.2-.6.5-1.1 1-1.6s1-.8 1.6-1c.6-.3 1.3-.4 2.3-.5C8.6 2 9 2 12 2m0 3.2A6.8 6.8 0 1 0 18.8 12 6.8 6.8 0 0 0 12 5.2m0 11.2A4.4 4.4 0 1 1 16.4 12 4.4 4.4 0 0 1 12 16.4m7-11.6a1.6 1.6 0 1 0 1.6 1.6 1.6 1.6 0 0 0-1.6-1.6"/></svg></a>
         </div>
       </div>
-      <div><h5>Buy</h5><ul><li><a href="#">Listing Search</a></li><li><a href="#">Featured Homes</a></li><li><a href="#">Communities</a></li><li><a href="#">Mortgage Info</a></li></ul></div>
-      <div><h5>Sell</h5><ul><li><a href="#">Home Valuation</a></li><li><a href="#">Our Process</a></li><li><a href="#">Recent Sales</a></li><li><a href="#">Staging Tips</a></li></ul></div>
-      <div><h5>Company</h5><ul><li><a href="#">Our Team</a></li><li><a href="#">Careers</a></li><li><a href="#">Commercial</a></li><li><a href="#">Contact</a></li></ul></div>
+      <div><h5>Buy</h5><ul><li><a href="listings.html">Listing Search</a></li><li><a href="listings.html">Featured Homes</a></li><li><a href="index.html#community">Communities</a></li><li><a href="#">Mortgage Info</a></li></ul></div>
+      <div><h5>Sell</h5><ul><li><a href="contact.html">Home Evaluation</a></li><li><a href="#">Our Process</a></li><li><a href="#">Recent Sales</a></li><li><a href="#">Staging Tips</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="realtors.html">Our Realtors&reg;</a></li><li><a href="#">Careers</a></li><li><a href="#">Commercial</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
     </div>
     <div class="fbot">
       <span>&copy; 2026 Royal LePage Global Force Realty. Independently owned and operated.</span>
-      <span>Privacy Policy · MLS&reg; Reciprocity</span>
+      <span class="pcplus">Site by <b>PC Plus Computing</b> &middot; 604-760-1662</span>
     </div>
   </div>
 </footer>
 
 <script>
-  document.querySelectorAll('.searchcard .tabs button').forEach(b=>{
-    b.addEventListener('click',()=>{document.querySelectorAll('.searchcard .tabs button').forEach(x=>x.classList.remove('on'));b.classList.add('on');});
+  document.querySelector('.menu-btn').addEventListener('click',function(){
+    var n=document.querySelector('nav ul');
+    n.style.display=(n.style.display==='flex')?'none':'flex';
+    n.style.position='absolute';n.style.top='82px';n.style.left='0';n.style.right='0';
+    n.style.flexDirection='column';n.style.background='#fff';n.style.padding='20px 30px';
+    n.style.borderBottom='1px solid #e7e7e7';n.style.gap='16px';
   });
 </script>
 </body>
